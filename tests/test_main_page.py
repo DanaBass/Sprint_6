@@ -1,16 +1,18 @@
 import pytest
+import allure
+
+from data.data import ExpectedResults
 from pages.main_page import MainPage
-from data import ExpectedResults
 
 
 class TestMainPage:
 
     @pytest.mark.parametrize("num", [
-        0, 1, 2, 3, 4, 5, 6, 7,
+        x for x in ExpectedResults.results.keys()
     ])
+    @allure.step("Тестируем вопрос номер: {num}")
     def test_questions_and_answers(self, driver, num):
         main_page = MainPage(driver)
-        driver.get("https://qa-scooter.praktikum-services.ru/")
 
         expected_result = ExpectedResults.results[num]
 

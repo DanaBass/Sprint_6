@@ -9,3 +9,23 @@ class ExpectedResults:
         6: "Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.",
         7: "Да, обязательно. Всем самокатов! И Москве, и Московской области."
     }
+
+class OrderFormData:
+    def __init__(self, name, last_name, address, station, phone, time, rental_period, scooter_color, comment):
+        self.name = name
+        self.last_name = last_name
+        self.address = address
+        self.station = station
+        self.phone = phone
+        self.time = time
+        self.rental_period = rental_period
+        self.scooter_color = scooter_color
+        self.comment = comment
+
+class OrderForm:
+    data = {
+        "first_data_set": OrderFormData("Павел", "Алексеев","Краснознаменская 3", "Черкизовская", "+79991234567",
+            "29.10.2024", "двое суток", "black", "Не стучать"),
+        "second_data_set": OrderFormData("Дана", "Сизова","Сказочная 4", "Сокольники", "+79881234568",
+            "27.11.2023", "четверо суток", "grey", "Позвоните")
+    }
