@@ -10,3 +10,5 @@ class MainPageLocators:
     ORDER_HEADER_BUTTON = By.XPATH, '//button[@class="Button_Button__ra12g" and text()="Заказать"]'# Локатор для кнопки "Заказать" в шапке профиля.
     ORDER_BUTTON_BELOW = By.XPATH, '//button[@class="Button_Button__ra12g Button_Middle__1CSJM" and text()="Заказать"]'# Локатор для кнопки "Заказать" внизу страницы.
 
+    COOKIE_LOCATOR = By.XPATH, "//button[@id='rcc-confirm-button' and text()='да все привыкли']" # Принятие cookies сайта.
+

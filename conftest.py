@@ -3,13 +3,17 @@ from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
+from data.urls import UrlsContainer
+from locators.main_page_locators import MainPageLocators
 
 
 @pytest.fixture()
 def driver():
     driver = webdriver.Firefox()
-    driver.get('https://qa-scooter.praktikum-services.ru/')
-    confirm_button = WebDriverWait(driver, 10).until(EC.element_to_be_clickable((By.XPATH, "//button[@id='rcc-confirm-button' and text()='да все привыкли']")))
-    confirm_button.click()
+    driver.get(UrlsContainer.MAIN_PAGE_URL)
+
+    cookies_confirmation = WebDriverWait(driver, 10).until(EC.element_to_be_clickable(MainPageLocators.COOKIE_LOCATOR))
+    cookies_confirmation.click()
+
     yield driver
     driver.quit()

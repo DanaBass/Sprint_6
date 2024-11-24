@@ -3,19 +3,22 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 import allure
 
+from locators.main_page_locators import MainPageLocators
+
+
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
 
     @allure.step("Находим элемент по локатору: {locator}")
     @allure.title("Поиск элемента по локатору")
-    def find_element_with_wait(self, locator):
-        return WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+    def find_element_with_wait(self, locator, timeout: float = 10):
+        return WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
 
     @allure.step("Кликаем на элемент по локатору: {locator}")
     @allure.title("Клик по элементу")
-    def click_to_element(self, locator):
-        element = WebDriverWait(self.driver, 10).until(EC.element_to_be_clickable(locator))
+    def click_to_element(self, locator, timeout: float = 10):
+        element = WebDriverWait(self.driver, timeout).until(EC.element_to_be_clickable(locator))
         try:
             element.click()
         except ElementClickInterceptedException:
@@ -35,8 +38,8 @@ class BasePage:
 
     @allure.step("Получаем текст из элемента по локатору: {locator}")
     @allure.title("Получение текста из элемента")
-    def get_text_from_element(self, locator):
-        element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(locator))
+    def get_text_from_element(self, locator, timeout: float = 10):
+        element = WebDriverWait(self.driver, timeout).until(EC.visibility_of_element_located(locator))
         return element.text
 
     @staticmethod
@@ -50,8 +53,8 @@ class BasePage:
 
     @allure.step("Прокручиваем до элемента по локатору: {locator}")
     @allure.title("Прокрутка до элемента")
-    def scroll_to_element(self, locator):
-            element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located(locator))
+    def scroll_to_element(self, locator, timeout: float = 10):
+            element = WebDriverWait(self.driver, timeout).until(EC.presence_of_element_located(locator))
 
             self.driver.execute_script("arguments[0].scrollIntoView();", element)
 

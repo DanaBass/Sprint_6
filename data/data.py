@@ -10,22 +10,28 @@ class ExpectedResults:
         7: "Да, обязательно. Всем самокатов! И Москве, и Московской области."
     }
 
-class OrderFormData:
-    def __init__(self, name, last_name, address, station, phone, time, rental_period, scooter_color, comment):
-        self.name = name
-        self.last_name = last_name
-        self.address = address
-        self.station = station
-        self.phone = phone
-        self.time = time
-        self.rental_period = rental_period
-        self.scooter_color = scooter_color
-        self.comment = comment
-
 class OrderForm:
-    data = {
-        "first_data_set": OrderFormData("Павел", "Алексеев","Краснознаменская 3", "Черкизовская", "+79991234567",
-            "29.10.2024", "двое суток", "black", "Не стучать"),
-        "second_data_set": OrderFormData("Дана", "Сизова","Сказочная 4", "Сокольники", "+79881234568",
-            "27.11.2023", "четверо суток", "grey", "Позвоните")
+    test_data_sets = {
+        1: {
+            "name": "Павел",
+            "last_name": "Алексеев",
+            "address": "Краснознаменская 3",
+            "station": "Черкизовская",
+            "phone": "+79991234567",
+            "time": "29.10.2024",
+            "rental_period": "двое суток",
+            "scooter_color": "black",
+            "comment": "Не стучать"
+        },
+        2: {
+            "name": "Дана",
+            "last_name": "Сизова",
+            "address": "Сказочная 4",
+            "station": "Сокольники",
+            "phone": "+79881234568",
+            "time": "27.11.2023",
+            "rental_period": "четверо суток",
+            "scooter_color": "grey",
+            "comment": "Позвоните"
+        }
     }
