@@ -10,6 +10,7 @@ class TestMainPage:
     @pytest.mark.parametrize("num", [
         x for x in ExpectedResults.results.keys()
     ])
+    @allure.title("Тестирование вопроса и ответа номер {num}")
     @allure.step("Тестируем вопрос номер: {num}")
     def test_questions_and_answers(self, driver, num):
         main_page = MainPage(driver)

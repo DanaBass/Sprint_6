@@ -7,6 +7,7 @@ from locators.main_page_locators import MainPageLocators
 class MainPage(BasePage):
 
     @allure.step("Получаем текст ответа для вопроса номер: {num}")
+    @allure.title("Получение текста ответа для вопроса номер: {num}")
     def get_answer_text(self, num):
         locator_q_formatted = self.format_locators(MainPageLocators.QUESTION_LOCATOR, num)
         locator_a_formatted = self.format_locators(MainPageLocators.ANSWER_LOCATOR, num)

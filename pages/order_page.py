@@ -8,11 +8,13 @@ from locators.order_page_locators import OrderPageLocators
 class OrderPage(BasePage):
 
     @allure.step("Устанавливаем заказ с данными: {order_form_data}")
+    @allure.title("Настройка заказа с указанными данными")
     def set_order(self, order_form_data: OrderFormData):
         self.fill_user_data_form(order_form_data)
         self.fill_rent_data_form(order_form_data)
 
     @allure.step("Заполняем форму данных пользователя")
+    @allure.title("Заполнение формы данных пользователя")
     def fill_user_data_form(self, order_form_data: OrderFormData):
         self.add_text_to_element(OrderPageLocators.NAME_INPUT, order_form_data.name)
         self.add_text_to_element(OrderPageLocators.LAST_NAME_INPUT, order_form_data.last_name)
@@ -27,6 +29,7 @@ class OrderPage(BasePage):
         self.click_to_element(OrderPageLocators.BUTTON_NEXT)
 
     @allure.step("Заполняем форму данных аренды")
+    @allure.title("Заполнение формы данных аренды")
     def fill_rent_data_form(self, order_form_data: OrderFormData):
         self.add_text_to_element(OrderPageLocators.TIME_INPUT, order_form_data.time)
 
@@ -41,6 +44,7 @@ class OrderPage(BasePage):
         self.click_to_element(OrderPageLocators.ORDER_CONFIRMATION)
 
     @allure.step("Проверяем заказ по локатору: {locator}")
+    @allure.title("Проверка заказа")
     def check_order(self, locator):
         return self.get_text_from_element(locator)
 

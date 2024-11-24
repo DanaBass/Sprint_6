@@ -13,6 +13,7 @@ class TestTransitionPage:
             (locators.transition_page_locators.TransitionPageLocators.YANDEX_IMAGE, locators.transition_page_locators.TransitionPageLocators.UNIQUE_ELEMENT_YANDEX, 'Главное'),
         ]
     )
+    @allure.title("Тестирование перехода с изображением: {image_locator}")
     @allure.step("Тестируем переход с изображением: {image_locator}")
     def test_transition(self, driver, image_locator, text_locator, expected_text):
         transition_page = TransitionPage(driver)
